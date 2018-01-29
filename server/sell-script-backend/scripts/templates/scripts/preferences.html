@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% block title-subject %}{% trans "Team" %}{% endblock %}
+{% block append-head %}
+{% compress css %}
+    <link href="{% static "css/preferences.css" %}" rel="stylesheet">
+{% endcompress %}
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" role="main">
+                    <h2>{% trans "Script permissions settings" %}</h2>
+                    <div id="permissionsEditor"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block append-body %}
+    {% compress js %}
+    {% include "scripts/scripts.inc.html" %}
+    <script>
+        $(function(){App().renderPrefs('#permissionsEditor')});
+    </script>
+    {% endcompress %}
+{% endblock %}

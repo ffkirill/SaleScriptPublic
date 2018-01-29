@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load i18n social_login %}
+{% load staticfiles %}
+
+{% block css-layout %}
+    <link href="{% static "css/main/page.css" %}"
+          rel="stylesheet">
+{% endblock %}
+{% block brand %}{% trans "Sales scripts. Free designer - SaleScript.gift" %}{% endblock %}
+{% block title %}Sales script for free. SaleScript.Gift designer{% endblock %}
+{% block head-description %}Sales scripts for free, create your own conversation scenario.{% endblock %}
+{% block content %}
+    <div class="mainpage">
+        <div class="slide about">
+
+            <div class="row">
+
+                <div class="picture-block">
+                    <iframe width="427" height="240" src="https://www.youtube.com/embed/dRt4vuqIw1g?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="text-block">
+
+                    <h1>Free sales scripts generator</h1>
+
+                    <p>Welcome to the open beta testing of sales scripts constructor
+                        SaleScript.gift.
+                        Important: see the video manual on this page before you
+                        start work.</p>
+                    <p>
+                        The good news: sales scripts generator will remain free
+                        forever. With your help, we successfully improve the functionality,
+                        and will soon begin work on expanding the capacity of our project,
+                        to create from it a full-fledged cold sales lead generation
+                        machine and even more.
+                        However, this is only the beginning. We still have a lot of interesting ideas
+                        which we hope to bring to life.</p>
+
+                    <p>To do this we need your help. Any comments about bugs and
+                        shortcomings of the system, help with proper localization,
+                        you can always send us through our Facebook page.
+                        We'll be very grateful. You can also support the project
+                        financially on a purely voluntary basis.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="slide scripts">
+          <div class="row">
+            <div class="picture-block">
+                {# Fb groups #}
+                {% include "fb_groups.inc.html" %}
+                {# End Fb groups #}
+            </div>
+            <h2>What is conversations (sales) scripts</h2>
+            <p>Scripts of conversations, often called sales scripts - a detailed
+                scenario of conversation on the phone. It significantly reduces
+                the risk of losing a client, both potential and existing related
+                management incompetence, stress factors, and helps to learn to a
+                high standard talking on the phone a new member of your team,
+                reducing the training period. By implementing a scripts of calls
+                to your business, you can after a short period of internship
+                (1-2 weeks) to set the salaries of employees, according to its
+                real value for the company and it certainly will not be offended,
+                because there will be quite confident. Depending on the purpose
+                for which designed call script, they can be used for:</p>
+            <ul>
+                <li>Cold calls to organizations and to individuals</li>
+                <li>Handling incoming calls</li>
+                <li>Customer Service</li>
+                <li>Gathering information about competitors</li>
+                <li>Re-sale calls</li>
+                <li>Poll of satisfaction on the cooperation</li>
+            </ul>
+            <p>And not limited to these. After all, you can virtually eliminate
+                the factor of chance and incompetence of the employees in any
+                communication with the client. Employees on the phone is the face
+                of your company, in fact, they often give the impression of it</p>
+             </div>
+        </div>
+        <div class="slide scripts-how">
+            <h2>What sales script should include</h2>
+            <p>Depending on the purpose, the script composition may be different.
+                The main thing that you need to achieve - is the goal of a particular
+                scenario. In one case, it may be a sale, in another - the removal
+                of emotional intensity (support staff). You have to determine for
+                themselves the link from which you will get the maximum conversion
+                to sale, the solution customer problems and so on.</p>
+
+            <p>The main sections of high-quality sales script may include:</p>
+
+            <ul>
+                <li>The conversation with the secretary, identify the person
+                    making the decision (DM) and getting in touch with him</li>
+                <li>Detection of the needs of decision-makers in your product/service</li>
+                <li>Product Presentation</li>
+                <li>Work with objections</li>
+                <li>Closing oo the target of the script</li>
+                <li>Additional sale</li>
+            </ul>
+            <p>You should monitor your managers, listen to the recording of calls,
+                create checklists on the main points for the best results. By
+                implementing sales scripts you can dramatically improve your sales.
+                Who wants to get rich?</p>
+        </div>
+        <div class="slide getready">
+            <p>Log on and make your first sales script! Start your way to success
+                absolutely free without any limitations.</p>
+            <a href="{% url 'clients:register' %}?next={% url 'clients:dashboard' %}"
+               class="btn btn-success">Register</a> or use social networks login: {% social_login %}
+            {#Sharebuttons#}
+            {% include "share_buttons.inc.html" %}
+            {#End Sharebuttons#}
+        </div>
+    </div>
+{% endblock %}

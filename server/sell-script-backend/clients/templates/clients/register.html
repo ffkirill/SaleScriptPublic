@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap3 i18n %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-9">
+            <h1 class="page-header">{% trans "registration"|capfirst %}</h1>
+            <form action="" role="form" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        {% trans "get started"|capfirst %}
+                    </button>
+                {% endbuttons %}
+                {% url "toe" as toe_url %}
+                {% url "confidential" as confidential_url %}
+                <p>
+                    {% blocktrans %}Please see <a href="{{ toe_url }}">Terms of Use</a> and
+                        <a href="{{ confidential_url }}">Confidentiality Policy</a>.
+                    By registering, you agree to the terms of these documents.{% endblocktrans %}
+                </p>
+            </form>
+        </div>
+    </div>
+{% endblock %}

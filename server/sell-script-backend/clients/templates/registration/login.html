@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap3 i18n social_login %}
+{% block main %}
+    {% if user.is_active %}
+        <h1>{{ user }} - {% trans "user is already logged in"|capfirst %}</h1>
+    {% else %}
+    <div class="row">
+        <div class="col-md-offset-4 col-md-8 content-page margin-top-20 margin-bottom-65">
+            <h1 class="page-header">{% trans "sign in"|capfirst context "form header"%}</h1>
+            <form action="" role="form" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        {% trans "sign in"|capfirst %}
+                    </button>
+                    <a class="btn btn-default pull-right"
+                       href="{% url "password_reset" %}">
+                        {% trans "Password reset" %}
+                    </a>
+                {% endbuttons %}
+            </form>
+            <h3>{% trans "Or Login via Social networks" %}:</h3>
+            {% social_login %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

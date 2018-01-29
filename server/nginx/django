@@ -1,0 +1,38 @@
+server {
+    listen 80;
+    gzip on;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript;
+    charset utf-8;
+
+    access_log  /var/log/nginx/django.log;
+
+    location /favicon.ico {
+        alias /usr/src/app/static/images/favicons/favicon.ico;
+        expires 30d;
+    }
+
+    location /static {
+        alias /usr/src/app/static;
+        expires 30d;
+    }
+
+    location /collect {
+        proxy_pass http://stats:8081/collect;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location /stats-v1-query {
+        proxy_pass http://stats:8081/stats-v1-query;
+        proxy_http_version 1.1;
+    }
+
+    location / {
+        proxy_pass http://web:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

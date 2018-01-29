@@ -1,0 +1,23 @@
+{% load i18n %}
+{% if user.is_active %}
+    <li class="current-user">
+        <a href="{% url 'clients:profile' %}">
+            <span class="glyphicon glyphicon-user"></span>{{ user }}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'logout' %}?next={% url 'main' %}">
+            {% trans "sign out"|capfirst %}
+        </a>
+    </li>
+{% else %}
+    <li class="current-user">
+        <a href="{% url 'login' %}?next={% url 'clients:dashboard' %}">
+            <span class="glyphicon glyphicon-user"></span>
+            {% trans "sign in"|capfirst %}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'clients:register' %}?next={% url 'clients:dashboard' %}">{% trans "register"|capfirst %}</a>
+    </li>
+{% endif %}

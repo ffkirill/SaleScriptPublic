@@ -1,0 +1,161 @@
+{% load staticfiles %}
+{% load navbar_tags %}
+{% load compress %}
+{% load i18n %}
+<!DOCTYPE html lang="{{ LANGUAGE_CODE }}">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block head-description %}Скрипты продаж бесплатно навсегда, составьте свой сценарий разговора.{% endblock %}">
+    <META Name="Keywords" content="">
+    <meta name='yandex-verification' content='7b44c9d4e7447444' />
+    <meta name="google-site-verification" content="-PuIGKMq3r9RUr913hB71gbeyruKl8esh0IiEzq8Lvo" />
+    {% compress css %}
+    {% block css-layout %}<link href="{% static "theme/css/flex-layout.css" %}" rel="stylesheet">{% endblock %}
+    {% endcompress %}
+    <title>{% block title %}SaleScript.gift: {% block title-subject %}{% trans "Main Page" %}{% endblock %}{% endblock %}</title>
+    <meta property="og:image" content="https://salescript.gift/static/images/scr.jpg">
+    <link rel="image_src" href="https://salescript.gift/static/images/scr.jpg">
+    {% block append-head %}{% endblock %}
+    {% compress css %}
+    <link href="{% static "bootstrap/css/bootstrap_superhero.min.css" %}"
+            rel="stylesheet">
+    <link href="{% static "theme/css/theme.css" %}"
+          rel="stylesheet">
+    {% endcompress %}
+    <link rel="icon" type="image/png" href="{% static "images/favicons/favicon-32x32.png" %}" sizes="32x32" >
+    <link rel="icon" type="image/png" href="{% static "images/favicons/favicon-16x16.png" %}" sizes="16x16" >
+
+</head>
+<body>
+{#Static navbar#}
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="/">
+                <img src="{% static "images/favicons/favicon-32x32.png" %}"
+                     height="32" width="32" style="display: inline; margin-top: -7px;">
+                 {% block brand %}SaleScript.gift{% endblock %}
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {% if user.is_active %}
+                    <li><a href="{% url 'clients:dashboard' %}">{% trans "dashboard"|capfirst %}</a></li>
+                    <li><a href="{% url 'scripts:editor' %}" data-update-params="true">{% trans "editor"|capfirst %}</a></li>
+                    <li><a href="{% url 'scripts:viewer' %}" data-update-params="true">{% trans "viewer"|capfirst %}</a></li>
+                    <li><a href="{% url 'scripts:stats-all' %}">{% trans "stats"|capfirst %}</a></li>
+                    <li><a href="{% url 'scripts:preferences' %}" data-update-params="true">{% trans "permissions"|capfirst %}</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% navbar_user %}
+                <li>
+                    <a href="#" class="dropdown-toggle" id="dropdownMenuInfo"
+                       data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        &nbsp
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuInfo">
+                        <li><a href="{% url 'faq' %}">F.A.Q.</a></li>
+                        <li><a href="#">{% trans "About project" %}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+{#End navbar#}
+{% if messages %}
+  <div class="alert alert-info" role="alert">
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+{% block content %}
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9" role="main" id="centerBlock">
+                {% block main %}
+                    <h1>Hello, world!</h1>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{#Sicky footer#}
+<footer class="footer">
+    <!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=35701405&amp;from=informer"
+target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/35701405/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:35701405,lang:'ru'});return false}catch(e){}" /></a>
+    <!-- /Yandex.Metrika informer -->
+<span>{% trans "Sales scripts" %} ©SaleScript.gift 2016. {% trans "All rights reserved. Please see the video manual on the main page." %}. </span><!-- Link to donate page -->
+
+</footer>
+{#End footer#}
+{% compress js %}
+<script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+{% endcompress %}
+<script src="{% static "js/locale/" %}{{ LANGUAGE_CODE }}/djangojs.js"></script>
+{% block append-body %}{% endblock %}
+
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter35701405 = new Ya.Metrika({
+                    id:35701405,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/35701405" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Google Analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74357459-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- /Google Analytics -->
+
+</body>
+</html>

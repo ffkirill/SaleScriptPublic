@@ -1,0 +1,11 @@
+{% load staticfiles %}
+{% if not debug %}
+    <script src="{% static "js/scenarist-jsdeps.min.js" %}"></script>
+    <script src="{% static "js/scenarist-opt.js" %}"></script>
+    <script src="{% static "js/scenarist-launcher.js" %}"></script>
+{% else %}
+    <script src="http://127.0.0.1:12345/target/scala-2.12/scenarist-jsdeps.js"></script>
+    <script src="http://127.0.0.1:12345/target/scala-2.12/scenarist-fastopt.js"></script>
+    <script src="http://127.0.0.1:12345/target/scala-2.12/scenarist-launcher.js"></script>
+{% endif %}
+{#http://127.0.0.1:12345/target/scala-2.11/scenarist-fastopt.js#}

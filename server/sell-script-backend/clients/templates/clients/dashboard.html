@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% block title-subject %}{% trans "dashboard"|capfirst %}{% endblock %}
+{% block main %}
+  <div class="row">
+    <h2>{% trans "scenarios"|capfirst %}</h2>
+    {% for script in scripts %}
+      <div class="col-sm-6">
+        <div class="panel panel-default scenario-breadcrumb">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a href="{% url 'scripts:viewer' %}?script={{ script.pk }}">
+                {{ script.title }}
+              </a>
+            </h3>
+          </div>
+          <div class="panel-body">
+            {% trans "no description"|capfirst as no_description_given %}
+            <p>{% trans "description"|capfirst %}:
+              {% firstof script.description no_description_given %}</p>
+            <p>{% trans "author"|capfirst %}: {{ script.author }}</p>
+            <p>{% trans "creation date"|capfirst %}: {{ script.created }}</p>
+            <div class="btn-group btn-group-sm btn-group-justified"
+                 role="group">
+              <a class="btn btn-primary"
+                 href="{% url 'scripts:viewer' %}?script={{ script.pk }}">
+                {% trans "open"|capfirst %}
+              </a>
+              {% if script.has_perm_change %}
+                <a class="btn btn-primary"
+                   href="{% url 'scripts:editor' %}?script={{ script.pk }}">
+                  {% trans "edit"|capfirst %}
+                </a>
+              {% endif %}
+              <a class="btn btn-danger"
+                 data-toggle="modal" data-target="#scriptRemoveDialog"
+                 data-pk="{{ script.pk }}"
+                 data-title="{{ script.title }}"
+                 href="#">
+                {% trans "delete"|capfirst %}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="row" style="padding-bottom: 20px">
+    <div class="col-sm-12">
+      <a class="btn btn-lg btn-success"
+         href="{% url 'scripts:editor' %}">{% trans "Create new script with the Editor" %}</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <a class="btn btn-lg btn-info"
+         href="{% url 'scripts:migrate' %}">{% trans "Export/Import Profile" %}</a>
+    </div>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="scriptRemoveDialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{% trans "Script deletion" %}</h4>
+        </div>
+        <div class="modal-body">
+          <span id="dialogScriptTitle"></span>
+          <span>{% trans " - script will be deleted. Please confirm." %}</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="proceedDeletion" class="btn btn-danger">
+            {% trans "Proceed" %}
+          </button>
+          <button type="button" class="btn btn-primary"
+                  data-dismiss="modal">
+            {% trans "Cancel" %}
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+{% endblock %}
+
+{% block append-body %}
+  {% compress js %}
+    <script src="{% static "js/scenarist-jsdeps.min.js" %}"></script>
+    <script src="{% static "js/scenarist-opt.js" %}"></script>
+    <script src="{% static "js/scenarist-launcher.js" %}"></script>
+  {% endcompress %}
+  <script>
+    $('#scriptRemoveDialog').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var scriptTitle = button.data('title'),
+        scriptPk = button.data('pk');
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this);
+      modal.find('#dialogScriptTitle').text(scriptTitle);
+      modal.find('#proceedDeletion').on('click', function () {
+        $.ajax({
+          url: '/api/scripts/' + scriptPk + '/',
+          method: 'DELETE',
+          headers: {'X-CSRFToken': App().csrf()}
+        }).done(function () {
+          window.location.href = '{% url 'clients:dashboard' %}';
+        });
+      });
+    })
+  </script>
+{% endblock %}

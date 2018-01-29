@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% block title-subject %}{% trans "stats"|capfirst %}{% endblock %}
+{% block append-head %}
+{% compress css %}
+<link href="{% static "css/viewer.css" %}" rel="stylesheet">
+{% endcompress %}
+{% endblock %}
+
+{% block main %}
+    <h1>Loading script..</h1>
+{% endblock %}
+{% block append-body %}
+    {% compress js %}
+    {% include "scripts/scripts.inc.html" %}
+    <script>
+        $(function(){App().renderStatsAll('.main')});
+    </script>
+    {% endcompress %}
+{% endblock %}

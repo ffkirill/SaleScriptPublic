@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load i18n bootstrap3 %}
+{% block title-subject %}Client's Profile{% endblock %}
+{% block main %}
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#profile" aria-controls="profile" role="tab"
+                   data-toggle="tab">{% trans 'profile'|capfirst %}</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="profile">
+                <form class="col-md-8 form" action="" role="form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="control-label">{% trans 'login'|capfirst %}</label>
+                        <p class="form-control">{{ user.username }}</p>
+                    </div>
+                    {% bootstrap_form form %}
+                    <div class="form-group">
+                        <label class="control-label">{% trans "registration date"|capfirst %}</label>
+                        <p class="form-control">{{ user.date_joined }}</p>
+                    </div>
+
+                    {% buttons %}
+                        <button type="submit" class="btn btn-primary">
+                            {% trans "Save" %}
+                        </button>
+                        <a class="btn btn-success"
+                           href="{% url 'password_change' %}">
+                            {% trans "Change password" %}</a>
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

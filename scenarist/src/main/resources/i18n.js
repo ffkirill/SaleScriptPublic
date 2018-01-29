@@ -1,0 +1,1 @@
+var gettext = gettext || function(str) {return str};

@@ -1,0 +1,51 @@
+postgres:
+  restart: always
+  build: ./postgres
+  volumes:
+    - /var/salescript/pgdata:/var/lib/postgresql
+  ports:
+    - "5432:5432"
+
+web:
+  restart: always
+  build: ./sell-script-backend
+  expose:
+    - "8000"
+  links:
+    - postgres:postgres
+  env_file: .env
+  ports:
+    - "8000:8000"
+  volumes:
+    - /var/salescript/static:/usr/src/app/static
+  command: /usr/local/bin/gunicorn backend.wsgi:application -w 2 -b :8000
+
+nginx:
+  restart: always
+  build: ./nginx/
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - /var/salescript/static:/usr/src/app/static
+  links:
+    - web:web
+    - stats:stats
+
+#backup:
+#  restart: always
+#  build: ./backup
+#  volumes:
+#    - /etc/hostname:/etc/hostname:ro
+#  links:
+#    - postgres:postgres
+
+stats:
+  restart: always
+  build: ./stats
+  ports:
+    - "8081:8081"
+  links:
+    - web:web
+    - postgres:postgres
+  env_file: ./stats/.env

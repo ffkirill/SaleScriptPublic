@@ -1,0 +1,9 @@
+{% load backend_utils %}
+{% for sublist in available_backends|social_backends %}
+    {% for name, backend in sublist %}
+        <a class="btn btn-default" id="{{ name }}-button" name="{{ backend|backend_class }}" href="{% url "social:begin" backend=name %}">
+            <i class="fa fa-{{ name|icon_name }}"></i>
+            {{ backend|backend_name }}
+        </a>
+    {% endfor %}
+{% endfor %}

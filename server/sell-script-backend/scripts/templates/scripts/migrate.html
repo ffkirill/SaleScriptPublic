@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n bootstrap3 %}
+{% block title-subject %}Export/Import Profile{% endblock %}
+{% block main %}
+  <div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#export" aria-controls="export" role="tab"
+           data-toggle="tab">{% trans 'export data'|capfirst %}</a>
+      </li>
+      <li role="presentation">
+        <a href="#import" aria-controls="import" role="tab"
+           data-toggle="tab">{% trans 'import data'|capfirst %}</a>
+      </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="export">
+        <div class="row">
+          <div class="col-sm-12">
+            <a class="btn btn-lg btn-success"
+               href="{% url 'scripts:download' %}">{% trans "Download Users's data" %}</a>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="import">
+        <div class="row">
+          <div class="col-sm-12">
+            <form enctype="multipart/form-data" class="col-md-8 form" action="{% url 'scripts:migrate' %}" role="form" method="post">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                  {% trans "Import" %}
+                </button>
+              {% endbuttons %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+

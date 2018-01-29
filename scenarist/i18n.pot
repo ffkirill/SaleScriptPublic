@@ -1,0 +1,264 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Your Name <email@example.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:247
+msgid Add new permission
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:138
+msgid Add option
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:128
+msgid Add question
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:106
+msgid Ajax error
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:125
+msgid By Date
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:121
+msgid By User
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:166
+msgid Cancel
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:32
+msgid Change and view
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:155
+msgid Date
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:221
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:224
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:201
+msgid Description
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:91
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:234
+msgid Email
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:55
+msgid Entry
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:161
+msgid Events total
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:68
+msgid Fail
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:159
+msgid Failure count
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:87
+msgid Filters
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:112
+msgid Group
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:174
+msgid Link
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:26
+msgid N/A
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:46
+msgid New option
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:35
+msgid New question
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:160
+msgid No such reply count
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:95
+msgid No suitable option
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/components/NodePropertiesEditor.scala:43
+msgid Node properties
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:31
+msgid Owner
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:97
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:235
+msgid Permission
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:102
+msgid Range end
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:91
+msgid Range start
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:148
+msgid Remove
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:156
+msgid Remove option
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:149
+msgid Remove question
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:75
+msgid Response options
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:150
+msgid Revert
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:33
+msgid Run collecting stats
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:157
+msgid Run count
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:235
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:147
+msgid Save
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:188
+msgid Scenario is not selected
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:223
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:154
+msgid Script
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:211
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:214
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:198
+msgid Script name
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:203
+msgid Scripts
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/components/NodePropertiesEditor.scala:49
+msgid Select node to change text
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:62
+msgid Success
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:158
+msgid Success count
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:63
+msgid Success! Next Run.
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:281
+msgid There are unsaved data
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:234
+msgid There's no changes to save
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:56
+msgid This is the entry of the script
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:109
+msgid Unknown error
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:170
+msgid Unlink
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/model/questions/Questions.scala:69
+msgid Unsuccessful termination. Next Run.
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:156
+msgid User
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:233
+msgid Username
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PreferencesView.scala:34
+msgid View only
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/PlayerView.scala:72
+msgid Your phrase
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/EditorView.scala:181
+msgid Zoom
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:133
+msgid day
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:132
+msgid hour
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:135
+msgid month
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:136
+msgid quarter
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:134
+msgid week
+msgstr ""
+
+#: ../../../../src/main/scala/scenarist/containers/StatsSummaryView.scala:137
+msgid year
+msgstr ""
+

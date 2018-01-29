@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% block append-head %}
+{% compress css %}
+<link href="{% static "css/editor.css" %}" rel="stylesheet">
+{% endcompress %}
+{% endblock %}
+{% block title-subject %}{% trans "Editor" %}{% endblock %}
+{% block main %}
+    <h1>Loading the editor..</h1>
+{% endblock %}
+{% block append-body %}
+    {% compress js %}
+    {% include "scripts/scripts.inc.html" %}
+    <script>
+        $(function(){App().renderEditor('.main')});
+    </script>
+    {% endcompress %}
+{% endblock %}

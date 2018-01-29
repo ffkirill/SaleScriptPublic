@@ -1,0 +1,19 @@
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}
+
+Hello,
+
+You ({{ email }}) have been invited to join {{ site_name }}
+
+If you'd like to join, please go to
+{% endblocktrans %}
+{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+
+{% trans "to set a new password." %}
+
+{% trans "Your username:" %} {{ user.get_username }}
+
+{% blocktrans %}The {{ site_name }} team{% endblocktrans %}
+
+{% endautoescape %}

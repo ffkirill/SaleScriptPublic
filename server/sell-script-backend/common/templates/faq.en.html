@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+{% block css-layout %}
+    <link href="{% static "css/main/page.css" %}"
+          rel="stylesheet">
+{% endblock %}
+{% block brand %}{% trans "Sales scripts. Free designer - SaleScript.gift" %}{% endblock %}
+{% block title-subject %}{% trans "Frequently Asked Questions"|capfirst %}{% endblock %}
+{% block main %}
+    <main role="main">
+        <h2>{% trans "F.A.Q."|capfirst %}</h2>
+        <section>
+            <h3>How to add questions to the Scenario?</h3>
+            <p>First, you have to add the first reply of your operator to the
+                conversation scenario. Usually, the first question contains
+                greeting and representation of employee. To do this, click on "Add a question".
+                Your question in rectangular shaped block will appear.
+            </p>
+        </section>
+        <section>
+            <h3>How to add answer option to the Script?</h3>
+            <p>Select needed question of your operator, click "Add option" button,
+                and add the answers. The "Add option" button is displayed if one
+                of the questions is selected.
+            </p>
+        </section>
+        <section>
+            <h3>Why only the manager asks questions, and the client only responds?</h3>
+            <p>It is formal. But in general, is not it more productive to maintain
+                initiative of manager and ask questions?
+            </p>
+        </section>
+        <section>
+            <h3>How to edit the contents of questions and answers blocks?</h3>
+            <p> Select the desired block with the mouse - it becomes highlighted
+                in blue. While it is highlighted, you can edit the content in the
+                right column - in the "Node Properties" box.
+            </p>
+        </section>
+        <section>
+            <h3> How can link the questions and the answers blocks?</h3>
+            <p>Choose a block with the client's answer, and you will be able to
+                connect it with one of the Operator's replies by the clicking
+                on the "Link" button, and then, selecting an appropriate Question
+                block. For your convenience, the questions blocks at this point
+                are highlighted in green. Blocks and connection lines of the
+                Scenario aligned automatically.
+            </p>
+        </section>
+        <section>
+            <h3>How to move into the editor field in the Script Editor?</h3>
+            <p>Use the horizontal and vertical scroll bars and the mouse wheel to
+                scroll the editor field. This is important when you are working with the
+                large-scale scripts. In addition, use the Zoom control in the top right
+                corner of the Editor.
+            </p>
+        </section>
+        <section>
+            <h3>Why are blocks "Start" and "Success" and how to use them?</h3>
+            <p>These blocks are required for the script engine for the editor and
+                viewer to know the beginning and the end - please connect Client's response,
+                which is the purpose of your script to the "Success" block, which was
+                originally created by the Editor.
+                This will create a loop in the script, and you will be automatically
+                returned to the start point of the script to begin with another
+                customer after achieving target of the conversation with the
+                current customer in the View mode.
+            </p>
+        </section>
+        <section>
+            <h3>How to save a script that I've created</h3>
+            <p>Fill in the name of the script in the Editor, and click the "Save".
+            </p>
+        </section>
+        <section>
+            <h3>Tell me, is it possible to give access to my script to another users?</h3>
+            <p>Yes, you can give the script access to other people, see "Rights".
+                Just send them an invitation by e-mail, and set permissions.
+                When they enter the SaleScript, passing the link in the e-mail,
+                they will see the script in the Dashboard.
+            </p>
+        </section>
+        <section>
+            <h3>Tell me, is it possible to export the scenario, and use it offline?
+                What about scripts import?</h3>
+            <p>We don't have these opportunities yet. Our users voted for CRM in
+                last polling. We implement CRM, and then, we will suggest import/export
+                in the next voting to find out what things are most important to be done.
+            </p>
+        </section>
+    </main>
+{% endblock %}

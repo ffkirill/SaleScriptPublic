@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin
+Disallow: /register
+Disallow: /*&
+Disallow: /*?
+Disallow: /dashboard
+Disallow: /*/login
+Disallow: /*/logout
+Disallow: /*/password_change
+Disallow: /*/password_reset
+Disallow: /*/reset
+Host: salescript.gift
