@@ -3,6 +3,7 @@ server {
     gzip on;
     gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript;
     charset utf-8;
+    client_max_body_size 100m;
 
     access_log  /var/log/nginx/django.log;
 

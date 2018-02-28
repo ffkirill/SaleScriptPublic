@@ -1,7 +1,7 @@
 from backend.settings import *
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = not DEBUG
 ALLOWED_HOSTS=['*']
 DATABASES = {
     'default': {

@@ -127,9 +127,13 @@ class ImportScriptsView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         upfile = self.request.FILES['upload']
+        name = None
         if hasattr(upfile, 'temporary_file_path'):
-            upfile = upfile.temporary_file_path()
-        with File(upfile) as file:
+            name = upfile.temporary_file_path()
+            upfile = None
+        with File(upfile, name=name) as file:
+            if name:
+                file.open(mode='rb')
             if form.cleaned_data['delete_existed']:
                 self.clear_data()
             values = json.loads(file.read().decode('utf-8'))
